@@ -3,15 +3,17 @@
 */
 DEFINE VARIABLE iSum  AS INTEGER NO-UNDO.
 DEFINE VARIABLE iMass AS INTEGER NO-UNDO.
+DEFINE VARIABLE iFuel AS INTEGER NO-UNDO.
 
 INPUT FROM "2019-01.dat".
 REPEAT:
   IMPORT iMass.
 
   REPEAT:
-    iMass = TRUNCATE(iMass / 3,0) - 2.
-    IF iMass <= 0 THEN LEAVE.
-    iSum = iSum + iMass.
+    iFuel = TRUNCATE(iMass / 3,0) - 2.
+    IF iFuel <= 0 THEN LEAVE.
+    iSum = iSum + iFuel.
+    iMass = iFuel.
   END.   
   
 END.
